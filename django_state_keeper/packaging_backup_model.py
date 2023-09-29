@@ -10,10 +10,6 @@ from django.core.exceptions import BadRequest
 from django.db import models
 
 
-class BackupUpload(models.Model):
-    file = models.FileField(upload_to='loaded_backup/', blank=True)
-
-
 class BackupPackaging(models.Model):
     TIME_OF_ZIP_CREATION = {}
     name = models.CharField(max_length=100, blank=False, null=False)
@@ -42,7 +38,11 @@ class BackupPackaging(models.Model):
             zip_file_name = f'{self.name.replace(" ", "_")}-{datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}'
             creating_zip_path = os.path.join(tempfile.tempdir, zip_file_name)
             creating_zip_path = shutil.make_archive(creating_zip_path, 'zip', temp_dir)
+
+            if len(BackupPackaging.TIME_OF_ZIP_CREATION) == 0:
+                threading.Thread(target=created_zips_cleaner).start()
             BackupPackaging.TIME_OF_ZIP_CREATION[creating_zip_path] = datetime.now()
+
             return creating_zip_path
         except Exception as e:
             raise BadRequest(e)
@@ -56,6 +56,3 @@ def created_zips_cleaner():
                 os.remove(created_zip_path)
                 del BackupPackaging.TIME_OF_ZIP_CREATION[created_zip_path]
         sleep(hour_difference.seconds)
-
-
-threading.Thread(target=created_zips_cleaner).start()

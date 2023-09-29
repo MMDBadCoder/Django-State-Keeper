@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 from django_state_keeper.auto_backup_model import AutoBackupService
+from django_state_keeper.loading_backup_model import BackupUpload
 from django_state_keeper.packaging_backup_model import BackupPackaging
 
 
@@ -27,3 +28,10 @@ class BackupPackagingAdmin(admin.ModelAdmin):
 
 
 admin.site.register(BackupPackaging, BackupPackagingAdmin)
+
+
+class BackupUploadAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(BackupUpload, BackupUploadAdmin)
