@@ -2,11 +2,12 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-state-keeper',
-    version='0.2',
+    version='1.1',
     packages=find_packages(),
     include_package_data=True,
     license='MIT',
     description="A Django app that allows you to create backup of project and restore it later.",
+    long_description_content_type='text/markdown',
     long_description=open('README.md').read(),
     url='https://github.com/MMDBadCoder/Django-State-Keeper',
     author='Mohammad Heydari',

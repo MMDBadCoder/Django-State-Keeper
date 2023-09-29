@@ -14,7 +14,7 @@ from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 
 from django_state_keeper.logging_utils import LoggerFactory
-from django_state_keeper.packaging_backup_model import BackupPackaging
+from django_state_keeper.models.packaging_backup import BackupPackaging
 
 
 class AutoBackupService(models.Model):

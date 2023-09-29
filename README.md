@@ -61,6 +61,14 @@ sent to a Telegram chat.
   a backup by clicking on "Download" button.
 - You can open the "Upload Backup" panel and upload a backup file to be injected immediately.
 - You can create a "Auto Backup Sender Service" instance to receive backup files in telegram chat periodically.
+
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+## References
+
+
+- [GitHub Repository](https://github.com/MMDBadCoder/Django-State-Keeper)
+- [Pypi Project](https://pypi.org/project/django-state-keeper/)

@@ -2,9 +2,9 @@ from django.contrib import admin
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.urls.exceptions import NoReverseMatch
-from django_state_keeper.auto_backup_model import AutoBackupService
-from django_state_keeper.loading_backup_model import BackupUpload
-from django_state_keeper.packaging_backup_model import BackupPackaging
+from django_state_keeper.models.auto_backup import AutoBackupService
+from django_state_keeper.models.loading_backup import BackupUpload
+from django_state_keeper.models.packaging_backup import BackupPackaging
 
 
 class AutoBackupAdmin(admin.ModelAdmin):

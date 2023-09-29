@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import FileResponse
 
-from django_state_keeper.packaging_backup_model import BackupPackaging
+from django_state_keeper.models.packaging_backup import BackupPackaging
 
 
 @login_required
