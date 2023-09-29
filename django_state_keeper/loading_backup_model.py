@@ -10,6 +10,9 @@ from django.dispatch import receiver
 class BackupUpload(models.Model):
     zip_file = models.FileField(upload_to='loaded_backup/', blank=True)
 
+    class Meta:
+        verbose_name = 'Upload Backup'
+        verbose_name_plural = 'Upload Backup'
 
 @receiver(post_save, sender=BackupUpload)
 def create_backup_thread(sender, instance: BackupUpload, **kwargs):
