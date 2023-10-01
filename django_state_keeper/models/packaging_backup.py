@@ -18,6 +18,9 @@ class BackupPackaging(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)
     paths_to_gather = models.TextField(max_length=1000, blank=False, null=False, default='db.sqlite3')
 
+    def __str__(self):
+        return self.name
+
     def create_a_backup_package(self):
         temp_dir = tempfile.mkdtemp()
         try:
